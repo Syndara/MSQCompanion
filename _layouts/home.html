@@ -1,41 +1,295 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-<div>
+    * {
+        box-sizing: border-box;
+    }
 
-  {%- if page.title -%}
-  <header>
-    <h1>{{ page.title }}</h1>
-  </header>
-  {%- endif -%}
+    .bg-image {
+        /* The image used */
+        background-image: url("Background.jpg");
+        
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        
+        /* Full height */
+        height: 100%; 
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-  <section>
-    {{ content }}
-  </section>
-
-  {%- if site.posts.size > 0 -%}
-    <p class="h4">{{ page.list_title | default: "Posts" }}</p>
-    <ul class="list-unstyled">
-      {%- for post in site.posts -%}
-      <li>
-        <span class="text-muted">
-          {%- assign date_format = "%b %-d, %Y" -%}
-          {{ post.date | date: date_format }}
-        </span>
-        <p class="h5">
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </p>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
-
-</div>
+    /* Position text in the middle of the page/image */
+    .bg-text {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+    .title-text {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+    a {
+        color: #FA7CA7
+    }
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(188,190,212,0.24), 0 17px 24px 0 rgba(188,190,212,0.19);
+    }
+    .button {
+        background-color: #FA7CA7; /* Green */
+        border: 3px solid #f1f1f1;
+        color: whitesmoke;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+</style>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#title").fadeOut("slow");
+    $("#main").fadeIn("slow");
+  });
+});
+</script>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+        <table border=1>
+            <thead>
+                <tr>
+                    <th>Quest</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Quest giver</th>
+                    <th>Unlocks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>It's Probably Pirates</td>
+                    <td>Main Scenario quest</td>
+                    <td>15</td>
+                    <td>Baderon Tenfingers</td>
+                    <td>Sastasha Seagrot Sastasha Seagrot</td>
+                </tr>
+                <tr>
+                    <td>Call of the Forest</td>
+                    <td>Main Scenario quest</td>
+                    <td>15</td>
+                    <td>Baderon Tenfingers</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Fire in the Gloom</td>
+                    <td>Main Scenario quest</td>
+                    <td>16</td>
+                    <td>Mother Miounne</td>
+                    <td>Tam-Tara Deepcroft Tam-Tara Deepcroft</td>
+                </tr>
+                <tr>
+                    <td>Call of the Desert</td>
+                    <td>Main Scenario quest</td>
+                    <td>16</td>
+                    <td>Mother Miounne</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Into a Copper Hell</td>
+                    <td>Main Scenario quest</td>
+                    <td>17</td>
+                    <td>Momodi Modi</td>
+                    <td>Copperbell Mines Copperbell Mines</td>
+                </tr>
+                <tr>
+                    <td>The Scions of the Seventh Dawn (Quest)</td>
+                    <td>Main Scenario quest</td>
+                    <td>17</td>
+                    <td>Momodi Modi</td>
+                    <td>Retainers</td>
+                </tr>
+                <tr>
+                    <td>A Wild Rose by Any Other Name</td>
+                    <td>Main Scenario quest</td>
+                    <td>17</td>
+                    <td>Minfilia Warde</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Unsolved Mystery</td>
+                    <td>Main Scenario quest</td>
+                    <td>17</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>What Poor People Think</td>
+                    <td>Main Scenario quest</td>
+                    <td>18</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>A Proper Burial</td>
+                    <td>Main Scenario quest</td>
+                    <td>18</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For the Children</td>
+                    <td>Main Scenario quest</td>
+                    <td>19</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Amalj'aa Wrong Places</td>
+                    <td>Main Scenario quest</td>
+                    <td>19</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dressed to Deceive</td>
+                    <td>Main Scenario quest</td>
+                    <td>19</td>
+                    <td>Isembard</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Life Materia and Everything</td>
+                    <td>Main Scenario quest</td>
+                    <td>19</td>
+                    <td>Minfilia Warde</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Lord of the Inferno</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Minfilia Warde</td>
+                    <td>The Bowl of Embers The Bowl of Embers</td>
+                </tr>
+                <tr>
+                    <td>A Hero in the Making</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Minfilia Warde</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>The Company You Keep (Immortal Flames)</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Flame Officer</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Coin and Country</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Flame Personnel Officer</td>
+                    <td>The Immortal Flames</td>
+                </tr>
+                <tr>
+                    <td>The Company You Keep (Maelstrom)</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Storm Officer</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Till Sea Swallows All</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Storm Personnel Officer</td>
+                    <td>The Maelstrom</td>
+                </tr>
+                <tr>
+                    <td>The Company You Keep (Twin Adder)</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Serpent Officer</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Wood's Will Be Done</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Serpent Personnel Officer</td>
+                    <td>The Order of the Twin Adder</td>
+                </tr>
+                <tr>
+                    <td>Sylph-management</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Minfilia Warde</td>
+                    <td>Job Quests</td>
+                </tr>
+                <tr>
+                    <td>We Come in Peace</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Vorsaile Heuloix</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sylphic Studies</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Rolfe Hawthorne</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>First Impressions</td>
+                    <td>Main Scenario quest</td>
+                    <td>20</td>
+                    <td>Rolfe Hawthorne</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
